@@ -24,4 +24,26 @@ struct File: Identifiable {
     var details: String {
         return mobileProvision.entitlements.applicationIdentifier ?? "nil"
     }
+
+    var isXcodeManaged: String {
+        return String(describing: mobileProvision.isXcodeManaged)
+    }
+
+    var platforms: String {
+        return String(mobileProvision.platform.joined(separator: " || "))
+    }
+
+    var createdOn: String {
+        return String(describing: mobileProvision.creationDate)
+    }
+
+    var expiresOn: String {
+        return String(describing: mobileProvision.expirationDate)
+    }
+
+    var isDistribution: Bool {
+        return self.mobileProvision.developerCertificates.contains { cert in
+            cert.subjectName.localizedStandardContains("apple distribution")
+        }
+    }
 }

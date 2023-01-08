@@ -25,6 +25,12 @@ struct ContentView: View {
     @StateObject private var viewModel: ViewModel
 
     var body: some View {
+        VStack {
+            Toggle("Show only distribution profiles", isOn: $viewModel.showOnlyDistributionProfiles)
+            Toggle("Show expired profiles", isOn: $viewModel.showExpiredProfiles)
+            Text("Count: \($viewModel.filteredFiles.count)")
+        }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+        
         TextField("", text: $viewModel.searchText)
             .textFieldStyle(PlainTextFieldStyle())
             .background(RoundedRectangle(cornerRadius: 2).stroke(Color.white))
@@ -35,7 +41,6 @@ struct ContentView: View {
         .frame(minWidth: Constants.WindowSize.minWidth, minHeight: Constants.WindowSize.minHeight)
         .frame(maxWidth: Constants.WindowSize.maxWidth, maxHeight: Constants.WindowSize.maxHeight)
         .textSelection(.enabled)
-
     }
     
     init() {

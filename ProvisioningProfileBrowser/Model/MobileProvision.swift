@@ -55,7 +55,7 @@ struct MobileProvision: Decodable {
         let data: Data
         let certificate: SecCertificate
         let decodedCertificate: [String: Any]
-        
+
         var certvalue: String {
             return (decodedCertificate["2.5.4.3"] as? [String: Any])?["value"] as? String ?? ""
         }
@@ -78,6 +78,13 @@ struct MobileProvision: Decodable {
 
         }
 
+        var publicKeyData: Data {
+            guard let l1 = decodedCertificate["2.16.840.1.113741.2.1.1.1.10"] as? [String: Any] else {
+                return Data()
+            }
+            return l1["value"] as? Data ?? Data()
+        }
+
         init(from decoder: Decoder) throws {
             let container = try decoder.singleValueContainer()
             let data = try container.decode(Data.self)
@@ -87,7 +94,9 @@ struct MobileProvision: Decodable {
             self.certificate = certificate
             self.data = data
             let values = SecCertificateCopyValues(certificate, nil, nil) as? [String: Any] ?? [:]
+//            print(values)
             self.decodedCertificate = values
+            
         }
 
     }

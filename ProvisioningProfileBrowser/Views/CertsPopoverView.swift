@@ -12,12 +12,19 @@ struct CertsPopoverView: View {
     @StateObject var viewModel: ViewModel
     
     var body: some View {
-        Table(viewModel.certs) {
+        Table(viewModel.certs, selection: $viewModel.selectedCertId) {
             TableColumn("Subject Name", value: \.subjectName).width(800)
             TableColumn("Expires On", value: \.expiresOn)
         }
         .padding()
-            .frame(width: 1000, height: 500, alignment: .leading)
+            .frame(width: 1100, height: 500, alignment: .leading)
+        Text("Selected: \(viewModel.selectedCert)")
+            .textSelection(.enabled)
+            .padding()
+            .layoutPriority(1)
+            .onHover { _ in
+                print(viewModel.selectedCert)
+            }
     }
     
     init(viewModel: ViewModel) {

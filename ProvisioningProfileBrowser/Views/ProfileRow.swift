@@ -23,7 +23,7 @@ struct ProfileRow: View {
         .onTapGesture {
             self.showingPopover = true
         }
-        .popover(isPresented: $showingPopover) {
+        .popover(isPresented: $showingPopover, arrowEdge: .bottom) {
             CertsPopoverView(viewModel: .init(file: file))
         }
     }

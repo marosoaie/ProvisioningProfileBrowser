@@ -1,4 +1,4 @@
-#  <#Title#>
+#  Useful commands
 
 Extract public key from cer file:
 openssl x509 -inform der -in distribution.cer -pubkey -noout

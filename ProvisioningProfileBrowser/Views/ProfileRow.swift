@@ -14,7 +14,7 @@ private struct ProfileRowDetails: View {
 
     var body: some View {
         HStack {
-            Text(self.title).frame(minWidth: 110, alignment: .topLeading)
+            Text(self.title).frame(minWidth: 150, alignment: .topLeading)
             Text(self.value)
         }.padding(Constants.rowTextPadding)
 
@@ -42,6 +42,7 @@ struct ProfileRow: View {
                 ProfileRowDetails(title: "Details", value: file.details)
                 ProfileRowDetails(title: "Xcode managed", value: file.isXcodeManaged)
                 ProfileRowDetails(title: "Platforms", value: file.platforms)
+                ProfileRowDetails(title: "Application Identifier", value: file.applicationIdentifier)
                 ProfileRowDetails(title: "Created on", value: file.createdOn)
                 ProfileRowDetails(title: "Expires on", value: file.expiresOn)
             }

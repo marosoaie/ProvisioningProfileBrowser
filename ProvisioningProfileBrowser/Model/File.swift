@@ -33,6 +33,10 @@ struct File: Identifiable {
         return String(mobileProvision.platform.joined(separator: " || "))
     }
 
+    var applicationIdentifier: String {
+        return mobileProvision.entitlements.applicationIdentifier ?? "nil"
+    }
+
     var createdOn: String {
         return String(describing: mobileProvision.creationDate)
     }

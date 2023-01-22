@@ -16,6 +16,8 @@
 		3210EA4327E7636200BFC2B5 /* ProvisioningProfileBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210EA4227E7636200BFC2B5 /* ProvisioningProfileBrowserUITestsLaunchTests.swift */; };
 		3210EA5027E76BDB00BFC2B5 /* MobileProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210EA4F27E76BDB00BFC2B5 /* MobileProvision.swift */; };
 		321ACC8627E7BEBB00A109F3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321ACC8527E7BEBB00A109F3 /* Extensions.swift */; };
+		325565D7297D5AEF00B74F0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325565D6297D5AEF00B74F0E /* DataManager.swift */; };
+		325565DA297D5D8400B74F0E /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 325565D9297D5D8400B74F0E /* Algorithms */; };
 		32EE669C27E7DBDD00B49CE4 /* CertsPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE669B27E7DBDD00B49CE4 /* CertsPopoverView.swift */; };
 		32EE669E27E7DC1800B49CE4 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE669D27E7DC1800B49CE4 /* File.swift */; };
 		32EE66A027E7DCDF00B49CE4 /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE669F27E7DCDF00B49CE4 /* ContentViewViewModel.swift */; };
@@ -55,6 +57,7 @@
 		3210EA4F27E76BDB00BFC2B5 /* MobileProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileProvision.swift; sourceTree = "<group>"; };
 		321ACC8527E7BEBB00A109F3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		324BF48F296B8A96005DFD7E /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		325565D6297D5AEF00B74F0E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		32EE669B27E7DBDD00B49CE4 /* CertsPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertsPopoverView.swift; sourceTree = "<group>"; };
 		32EE669D27E7DC1800B49CE4 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		32EE669F27E7DCDF00B49CE4 /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325565DA297D5D8400B74F0E /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +156,7 @@
 			children = (
 				32EE669D27E7DC1800B49CE4 /* File.swift */,
 				3210EA4F27E76BDB00BFC2B5 /* MobileProvision.swift */,
+				325565D6297D5AEF00B74F0E /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +197,9 @@
 			dependencies = (
 			);
 			name = ProvisioningProfileBrowser;
+			packageProductDependencies = (
+				325565D9297D5D8400B74F0E /* Algorithms */,
+			);
 			productName = ProvisioningProfileBrowser;
 			productReference = 3210EA2127E7635E00BFC2B5 /* ProvisioningProfileBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +272,9 @@
 				Base,
 			);
 			mainGroup = 3210EA1827E7635E00BFC2B5;
+			packageReferences = (
+				325565D8297D5D8400B74F0E /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 3210EA2227E7635E00BFC2B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3210EA2727E7635E00BFC2B5 /* ContentView.swift in Sources */,
+				325565D7297D5AEF00B74F0E /* DataManager.swift in Sources */,
 				32EE669E27E7DC1800B49CE4 /* File.swift in Sources */,
 				32EE66A727E7DF4400B49CE4 /* ProfileRow.swift in Sources */,
 				32EE66A027E7DCDF00B49CE4 /* ContentViewViewModel.swift in Sources */,
@@ -634,6 +646,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		325565D8297D5D8400B74F0E /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		325565D9297D5D8400B74F0E /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 325565D8297D5D8400B74F0E /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3210EA1927E7635E00BFC2B5 /* Project object */;
 }
